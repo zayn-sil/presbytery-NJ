@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presbytery of the Highlands of NJ | Redesign Concept</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            blue: '#1B365D',     /* Deep Presbyterian Blue */
+                            green: '#2E5A27',    /* Highlands Green */
+                            light: '#F3F4F6',
+                            accent: '#D4AF37',   /* Gold/Harvest */
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Styles & Utilities */
+        .hero-pattern {
+            background-color: #1B365D;
+            background-image: url("https://images.unsplash.com/photo-1519817650390-64a93db51149?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80");
+            background-blend-mode: multiply;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #D4AF37;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Mobile Menu Animation */
+        #mobile-menu {
+            transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+        }
+        #mobile-menu.open {
+            max-height: 500px;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 antialiased bg-gray-50">
+
+    <div class="bg-brand-blue text-white text-sm py-2">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <div class="hidden md:flex space-x-6">
+                <a href="mailto:office@highlandspresbyterynj.org" class="hover:text-brand-accent transition"><i class="fas fa-envelope mr-2"></i>office@highlandspresbyterynj.org</a>
+                <a href="tel:973-361-0084" class="hover:text-brand-accent transition"><i class="fas fa-phone mr-2"></i>973-361-0084</a>
+            </div>
+            <div class="flex space-x-4 items-center w-full md:w-auto justify-between md:justify-end">
+                <span class="md:hidden text-xs opacity-75">Walking in the Light of God</span>
+                <div class="flex space-x-3">
+                    <a href="#" class="hover:text-brand-accent"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="hover:text-brand-accent"><i class="fab fa-youtube"></i></a>
+                    <a href="#" class="bg-brand-accent text-brand-blue px-3 py-1 rounded font-bold text-xs hover:bg-white transition">GIVE ONLINE</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center h-20">
+                <a href="#" class="flex items-center space-x-3 group">
+                    <div class="w-12 h-12 relative flex-shrink-0">
+                        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full drop-shadow-sm">
+                            <rect width="100" height="100" rx="20" fill="#1B365D"/>
+                            
+                            <path d="M15 75L35 45L55 75H15Z" fill="#2E5A27" stroke="white" stroke-width="2" stroke-linejoin="round"/>
+                            <path d="M45 75L70 35L95 75H45Z" fill="#2E5A27" stroke="white" stroke-width="2" stroke-linejoin="round"/>
+                            
+                            <path d="M65 20V80" stroke="#D4AF37" stroke-width="4" stroke-linecap="round"/>
+                            <path d="M50 35H80" stroke="#D4AF37" stroke-width="4" stroke-linecap="round"/>
+                            
+                            <circle cx="70" cy="35" r="12" stroke="white" stroke-width="1" stroke-dasharray="2 2" opacity="0.5"/>
+                        </svg>
+                    </div>
+                    
+                    <div class="flex flex-col">
+                        <span class="font-serif font-bold text-brand-blue text-lg leading-tight group-hover:text-brand-green transition">Presbytery of the Highlands</span>
+                        <span class="text-xs text-brand-accent tracking-[0.2em] font-bold">NEW JERSEY</span>
+                    </div>
+                </a>
+
+                <div class="hidden lg:flex space-x-8 items-center font-medium text-gray-600">
+                    <a href="#" class="nav-link hover:text-brand-blue">About Us</a>
+                    <a href="#" class="nav-link hover:text-brand-blue">Churches</a>
+                    <a href="#" class="nav-link hover:text-brand-blue">Events</a>
+                    <a href="#" class="nav-link hover:text-brand-blue">Resources</a>
+                    <a href="#" class="nav-link hover:text-brand-blue">Committees</a>
+                    <a href="#" class="px-5 py-2.5 bg-brand-green text-white rounded hover:bg-brand-blue transition shadow-sm">Contact Us</a>
+                </div>
+
+                <button id="mobile-menu-btn" class="lg:hidden text-gray-600 hover:text-brand-blue focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="lg:hidden bg-white border-t">
+            <div class="px-4 py-3 space-y-3">
+                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand-blue hover:bg-gray-50">About Us</a>
+                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand-blue hover:bg-gray-50">Find a Church</a>
+                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand-blue hover:bg-gray-50">Calendar & Events</a>
+                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand-blue hover:bg-gray-50">Resources</a>
+                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand-blue hover:bg-gray-50">Committees</a>
+                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium bg-brand-green text-white text-center">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="relative hero-pattern h-[600px] flex items-center justify-center text-center px-4">
+        <div class="absolute inset-0 bg-gradient-to-t from-brand-blue/90 to-transparent"></div>
+        <div class="relative z-10 max-w-4xl mx-auto space-y-6">
+            <span class="inline-block py-1 px-3 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white text-sm font-medium tracking-wide animate-fade-in-up">
+                ESTABLISHED 2021
+            </span>
+            <h1 class="text-4xl md:text-6xl font-serif font-bold text-white leading-tight shadow-sm">
+                Equipping Communities to <br/>
+                <span class="text-brand-accent italic">Walk in the Light of God</span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto font-light">
+                We are a community of 79 congregations across Northwest New Jersey, united in mission, service, and faith.
+            </p>
+            <div class="flex flex-col md:flex-row gap-4 justify-center pt-4">
+                <a href="#" class="px-8 py-4 bg-brand-accent text-brand-blue font-bold rounded shadow-lg hover:bg-white transition transform hover:-translate-y-1">
+                    Find a Church
+                </a>
+                <a href="#events" class="px-8 py-4 bg-transparent border-2 border-white text-white font-bold rounded hover:bg-white hover:text-brand-blue transition">
+                    Upcoming Events
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-brand-green uppercase tracking-widest font-bold text-sm mb-3">Our Mission</h2>
+            <p class="text-2xl md:text-3xl font-serif text-brand-blue max-w-4xl mx-auto leading-relaxed">
+                "God calls the Presbytery of the Highlands to equip, enable, and nurture the presbytery community as we exemplify the love of Christ."
+            </p>
+            <div class="mt-8 flex justify-center gap-8 text-gray-500 text-sm">
+                <div class="flex flex-col items-center">
+                    <span class="text-3xl font-bold text-brand-blue mb-1">79</span>
+                    <span>Congregations</span>
+                </div>
+                <div class="w-px bg-gray-300 h-12"></div>
+                <div class="flex flex-col items-center">
+                    <span class="text-3xl font-bold text-brand-blue mb-1">4</span>
+                    <span>Counties Served</span>
+                </div>
+                <div class="w-px bg-gray-300 h-12"></div>
+                <div class="flex flex-col items-center">
+                    <span class="text-3xl font-bold text-brand-blue mb-1">1</span>
+                    <span>United Mission</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <a href="#" class="group bg-white p-8 rounded-xl shadow-sm card-hover border-b-4 border-brand-green">
+                    <div class="w-12 h-12 bg-green-100 text-brand-green rounded-lg flex items-center justify-center mb-6 group-hover:bg-brand-green group-hover:text-white transition">
+                        <i class="fas fa-church text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Church Locator</h3>
+                    <p class="text-gray-600 text-sm">Find a worship community near you using our interactive map.</p>
+                </a>
+                
+                <a href="#" class="group bg-white p-8 rounded-xl shadow-sm card-hover border-b-4 border-brand-blue">
+                    <div class="w-12 h-12 bg-blue-100 text-brand-blue rounded-lg flex items-center justify-center mb-6 group-hover:bg-brand-blue group-hover:text-white transition">
+                        <i class="fas fa-briefcase text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Job Postings</h3>
+                    <p class="text-gray-600 text-sm">Current ministry opportunities and staff positions within the Presbytery.</p>
+                </a>
+                
+                <a href="#" class="group bg-white p-8 rounded-xl shadow-sm card-hover border-b-4 border-brand-accent">
+                    <div class="w-12 h-12 bg-yellow-100 text-yellow-700 rounded-lg flex items-center justify-center mb-6 group-hover:bg-brand-accent group-hover:text-white transition">
+                        <i class="fas fa-hands-praying text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Prayer Requests</h3>
+                    <p class="text-gray-600 text-sm">Submit prayer requests to be shared with our prayer team.</p>
+                </a>
+
+                <a href="#" class="group bg-white p-8 rounded-xl shadow-sm card-hover border-b-4 border-gray-400">
+                    <div class="w-12 h-12 bg-gray-100 text-gray-600 rounded-lg flex items-center justify-center mb-6 group-hover:bg-gray-600 group-hover:text-white transition">
+                        <i class="fas fa-folder-open text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Clerk Resources</h3>
+                    <p class="text-gray-600 text-sm">Forms, minutes, and manuals for Clerks of Session.</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-white" id="events">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row gap-12">
+                
+                <div class="lg:w-7/12">
+                    <div class="flex justify-between items-end mb-8">
+                        <div>
+                            <h2 class="text-3xl font-serif font-bold text-brand-blue">Latest News</h2>
+                            <div class="h-1 w-20 bg-brand-accent mt-2"></div>
+                        </div>
+                        <a href="#" class="text-brand-green font-semibold hover:underline">View Blog <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+
+                    <div class="flex flex-col md:flex-row gap-6 mb-8 group cursor-pointer">
+                        <div class="w-full md:w-1/3 overflow-hidden rounded-lg">
+                            <img src="https://images.unsplash.com/photo-1542831371-d531d36971e6?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="News Image" class="w-full h-48 object-cover transform group-hover:scale-110 transition duration-500">
+                        </div>
+                        <div class="w-full md:w-2/3">
+                            <span class="text-xs font-bold text-brand-accent uppercase mb-1 block">November 26, 2025</span>
+                            <h3 class="text-xl font-bold text-gray-800 group-hover:text-brand-blue transition mb-2">Prayer for Isaiah 2: 1-5 – Walk in the Light of God</h3>
+                            <p class="text-gray-600 line-clamp-3">Join us as we reflect on the scripture for this Advent season. The Presbytery invites all congregations to unite in prayer...</p>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col md:flex-row gap-6 mb-8 group cursor-pointer">
+                        <div class="w-full md:w-1/3 overflow-hidden rounded-lg">
+                            <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="News Image" class="w-full h-48 object-cover transform group-hover:scale-110 transition duration-500">
+                        </div>
+                        <div class="w-full md:w-2/3">
+                            <span class="text-xs font-bold text-brand-accent uppercase mb-1 block">November 25, 2025</span>
+                            <h3 class="text-xl font-bold text-gray-800 group-hover:text-brand-blue transition mb-2">Celebration of Ordination Anniversary – Rev. Steven Kengeter</h3>
+                            <p class="text-gray-600 line-clamp-3">We celebrate the faithful service of Rev. Steven Kengeter. Join us for a special reception following the service next Sunday.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="lg:w-5/12">
+                    <div class="bg-gray-50 rounded-2xl p-8 border border-gray-100 shadow-inner">
+                        <div class="flex justify-between items-center mb-6">
+                            <h2 class="text-2xl font-serif font-bold text-brand-blue">Upcoming Events</h2>
+                            <a href="#" class="text-sm text-gray-500 hover:text-brand-blue">Full Calendar</a>
+                        </div>
+
+                        <div class="space-y-4">
+                            <div class="bg-white p-4 rounded-lg shadow-sm flex gap-4 hover:shadow-md transition cursor-pointer border-l-4 border-brand-green">
+                                <div class="flex flex-col items-center justify-center px-2">
+                                    <span class="text-xs font-bold text-gray-500 uppercase">DEC</span>
+                                    <span class="text-2xl font-bold text-brand-green">08</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800">Invitation to Prayer During Advent</h4>
+                                    <p class="text-sm text-gray-500 mt-1"><i class="far fa-clock mr-1"></i> 8:30 am - 9:30 am</p>
+                                </div>
+                            </div>
+
+                            <div class="bg-white p-4 rounded-lg shadow-sm flex gap-4 hover:shadow-md transition cursor-pointer border-l-4 border-brand-blue">
+                                <div class="flex flex-col items-center justify-center px-2">
+                                    <span class="text-xs font-bold text-gray-500 uppercase">DEC</span>
+                                    <span class="text-2xl font-bold text-brand-blue">08</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800">Commission on Preparation for Ministry</h4>
+                                    <p class="text-sm text-gray-500 mt-1"><i class="far fa-clock mr-1"></i> 3:00 pm - 5:00 pm</p>
+                                </div>
+                            </div>
+
+                            <div class="bg-white p-4 rounded-lg shadow-sm flex gap-4 hover:shadow-md transition cursor-pointer border-l-4 border-brand-accent">
+                                <div class="flex flex-col items-center justify-center px-2">
+                                    <span class="text-xs font-bold text-gray-500 uppercase">DEC</span>
+                                    <span class="text-2xl font-bold text-brand-accent">17</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800">Church Development Team</h4>
+                                    <p class="text-sm text-gray-500 mt-1"><i class="far fa-clock mr-1"></i> 1:00 pm - 2:00 pm</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="w-full mt-6 py-3 border border-brand-blue text-brand-blue font-semibold rounded hover:bg-brand-blue hover:text-white transition text-sm">
+                            View Monthly Calendar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-brand-blue py-16 text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10" style="background-image: url('https://www.transparenttextures.com/patterns/cubes.png');"></div>
+        <div class="container mx-auto px-4 relative z-10 text-center">
+            <h2 class="text-3xl font-serif font-bold mb-4">Keep Up With The Presbytery</h2>
+            <p class="text-gray-300 mb-8 max-w-xl mx-auto">Don't miss anything! Sign up for our newsletter to receive weekly updates, job postings, and prayer requests directly to your inbox.</p>
+            
+            <form class="max-w-md mx-auto flex flex-col md:flex-row gap-3">
+                <input type="email" placeholder="Your Email Address" class="flex-1 px-4 py-3 rounded text-gray-800 focus:outline-none focus:ring-2 focus:ring-brand-accent">
+                <button type="button" class="px-6 py-3 bg-brand-green font-bold rounded hover:bg-green-700 transition">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-gray-400 py-12 text-sm">
+        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div>
+                <h3 class="text-white font-serif text-lg font-bold mb-4">Presbytery of the Highlands</h3>
+                <p class="mb-4">Equipping congregations in Northwest New Jersey to serve Christ and community.</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f fa-lg"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter fa-lg"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram fa-lg"></i></a>
+                </div>
+            </div>
+
+            <div>
+                <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-xs">Quick Links</h4>
+                <ul class="space-y-2">
+                    <li><a href="#" class="hover:text-brand-accent transition">Find a Church</a></li>
+                    <li><a href="#" class="hover:text-brand-accent transition">Presbytery Meetings</a></li>
+                    <li><a href="#" class="hover:text-brand-accent transition">Pulpit Supply</a></li>
+                    <li><a href="#" class="hover:text-brand-accent transition">Donate</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-xs">Committees</h4>
+                <ul class="space-y-2">
+                    <li><a href="#" class="hover:text-brand-accent transition">Committee on Ministry</a></li>
+                    <li><a href="#" class="hover:text-brand-accent transition">Property & Insurance</a></li>
+                    <li><a href="#" class="hover:text-brand-accent transition">Preparation for Ministry</a></li>
+                    <li><a href="#" class="hover:text-brand-accent transition">Administration Team</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-xs">Contact Us</h4>
+                <ul class="space-y-3">
+                    <li class="flex items-start">
+                        <i class="fas fa-map-marker-alt mt-1 mr-3 text-brand-green"></i>
+                        <span>390 Route 10 West<br>Randolph, NJ 07869</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-phone mr-3 text-brand-green"></i>
+                        <a href="tel:973-361-0084" class="hover:text-white">973-361-0084</a>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-envelope mr-3 text-brand-green"></i>
+                        <a href="mailto:office@highlandspresbyterynj.org" class="hover:text-white">Email Office</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="container mx-auto px-4 mt-12 pt-8 border-t border-gray-800 text-center text-xs">
+            <p>&copy; 2025 Presbytery of the Highlands of New Jersey. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('open');
+        });
+
+        // Simple Scroll Reveal Effect
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        // Add reveal classes to sections
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('transition', 'duration-1000', 'opacity-0', 'translate-y-10');
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
